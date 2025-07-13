@@ -5,7 +5,7 @@ on: [push, workflow_dispatch]
 env:
   RESOURCE-GROUP: rg-eshoponweb-patrita63
   LOCATION: eastus
-  TEMPLATE-FILE: infra/webapp.bicep
+  TEMPLATE-FILE: bicep-template/webapp.bicep  # ✅ Corrected path
   SUBSCRIPTION-ID: aa67cdae-2fc0-41d1-bd24-694d92814576
   WEBAPP-NAME: eshoponweb-webapp-pat25
 
