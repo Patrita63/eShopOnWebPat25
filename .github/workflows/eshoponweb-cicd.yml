@@ -84,7 +84,7 @@ jobs:
               --name webapp-deployment-${{ github.run_id }} \
               --resource-group ${{ env.RESOURCE-GROUP }} \
               --subscription ${{ env.SUBSCRIPTION-ID }} \
-              --template-file bicep-template/webapp.bicep \
+              --template-file ${{ env.TEMPLATE-FILE }} \ // --template-file bicep-template/webapp.bicep
               --parameters webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }} sku=B1
 
       - name: Deploy .NET App to Azure Web App
