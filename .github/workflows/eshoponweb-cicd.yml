@@ -67,6 +67,13 @@ jobs:
       - name: List downloaded Bicep files (debug)
         run: ls -R bicep-template
 
+      - name: Verify webapp.bicep exists
+        run: |
+          if [ ! -f bicep-template/webapp.bicep ]; then
+            echo "ERROR: Bicep template not found!"
+            exit 1
+          fi
+
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -81,7 +88,8 @@ jobs:
               --resource-group ${{ env.RESOURCE-GROUP }} \
               --subscription ${{ env.SUBSCRIPTION-ID }} \
               --template-file bicep-template/webapp.bicep \
-              --parameters webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}
+              --parameters webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }} sku=B1
+              --debug // Remove once everything is stable.
 
       - name: Deploy .NET App to Azure Web App
         uses: azure/cli@v2
