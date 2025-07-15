@@ -3,11 +3,11 @@ name: eShopOnWeb Build and Deploy (CLI)
 on: [push, workflow_dispatch]
 
 env:
-  RESOURCE-GROUP: rg-eshoponweb-patrita63
-  LOCATION: eastus
-  TEMPLATE-FILE: bicep-template/webapp.bicep  # ✅ Corrected path
+  RESOURCE-GROUP: rg-eshoponweb-pat25
+  LOCATION: centralus
+  TEMPLATE-FILE: bicep-template/webapp.bicep  
   SUBSCRIPTION-ID: aa67cdae-2fc0-41d1-bd24-694d92814576
-  WEBAPP-NAME: eshoponweb-webapp-pat25
+  WEBAPP-NAME: eshoponweb-webapp-pat2025
 
 jobs:
   buildandtest:
@@ -74,7 +74,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS_PAT25 }}
 
       - name: Deploy Infrastructure using Azure CLI
         uses: azure/cli@v2
