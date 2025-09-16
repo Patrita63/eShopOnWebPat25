@@ -1,12 +1,12 @@
 name: eShopOnWeb Build and Deploy (CLI)
-
+# The workflow triggers with every push to the main branch and also offers manual triggering ("workflow_dispatch")
 on: [push, workflow_dispatch]
 
 env:
   RESOURCE-GROUP: rg-eshoponweb-pat25
-  LOCATION: centralus
+  LOCATION: westeurope
   TEMPLATE-FILE: bicep-template/webapp.bicep  
-  SUBSCRIPTION-ID: aa67cdae-2fc0-41d1-bd24-694d92814576
+  SUBSCRIPTION-ID: c2a41a0d-c4b3-4def-9b61-9fcf9ef796f3
   WEBAPP-NAME: eshoponweb-webapp-pat2025
 
 jobs:
